@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+             background-image: url("https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fw8y1pf9mdhafhmimlk6s.jpeg");
+    background-size: cover;
+
+        }
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #343a40;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #495057;
+        }
+        main {
+            margin: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function printPage() {
+            window.print();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Diabetes Prediction Results</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('predict') }}">Predict</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <h2>Prediction Results</h2>
+        <div>
+            <pre>{{ result['logistic'] }}</pre>
+            <pre>{{ result['random_forest'] }}</pre>
+            <pre>{{ result['decision_tree'] }}</pre>
+            <pre>{{ result['svm'] }}</pre>
+            <pre>{{ result['knn'] }}</pre>
+            <pre>{{ result['gradient_boosting'] }}</pre>
+        </div>
+        <div>
+            <h3>Model Accuracies</h3>
+            <p>Logistic Regression Accuracy: {{ logistic_accuracy }}%</p>
+            <p>Random Forest Accuracy: {{ random_forest_accuracy }}%</p>
+            <p>Decision Tree Accuracy: {{ decision_tree_accuracy }}%</p>
+            <p>SVM Accuracy: {{ svm_accuracy }}%</p>
+            <p>KNN Accuracy: {{ knn_accuracy }}%</p>
+            <p>Gradient Boosting Accuracy: {{ gradient_boosting_accuracy }}%</p>
+        </div>
+        <div>
+            <h3>Accuracy Graph</h3>
+            <img src="data:image/png;base64,{{ accuracy_graph }}" alt="Model Accuracy Graph">
+        </div>
+        <button onclick="printPage()" class="btn btn-primary mt-3">Print Results</button>
+    </main>
+</body>
+</html>
