@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIADBETES PREDICTION</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>DIABETES PREDICTION </h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('predict') }}">Prediction</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <main class="container text-center">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        <h2>Welcome to the Diabetes Prediction </h2>
+        <p>Certainly! Your website can provide valuable diabetes prediction services by leveraging advanced machine learning models. Users can input relevant health data, such as age, BMI, family medical history, and lifestyle factors, into your platform. The system then uses these inputs to generate personalized predictions regarding their risk of developing diabetes. This service not only promotes early detection but also encourages proactive health management through tailored recommendations and insights. Additionally, your website can offer educational resources on diabetes prevention, healthy living tips, and possibly connect users with healthcare professionals for further guidance. This holistic approach aims to empower individuals in managing their health effectively</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Diabetes Prediction Application</p>
+    </footer>
+</body>
+</html>

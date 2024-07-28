@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var confirm_password = document.getElementById("confirm_password").value;
+            var message = "";
+
+            if (password.length < 8) {
+                message = "Password must be at least 8 characters long.";
+            } else if (!/[A-Z]/.test(password)) {
+                message = "Password must contain at least one uppercase letter.";
+            } else if (!/[a-z]/.test(password)) {
+                message = "Password must contain at least one lowercase letter.";
+            } else if (!/[0-9]/.test(password)) {
+                message = "Password must contain at least one digit.";
+            } else if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password)) {
+                message = "Password must contain at least one special character.";
+            } else if (password !== confirm_password) {
+                message = "Passwords do not match.";
+            }
+
+            document.getElementById("validation-message").innerText = message;
+            return message === "";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Diabetes Prediction</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('predict') }}">Prediction</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    <main class="container text-center">
+        <h2>Register</h2>
+        <form method="POST" onsubmit="return validatePassword()">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.username.label }}<br>
+                {{ form.username(size=32) }}
+            </div>
+            <div>
+                {{ form.password.label }}<br>
+                {{ form.password(id='password', size=32) }}
+            </div>
+            <div>
+                {{ form.confirm_password.label }}<br>
+                {{ form.confirm_password(id='confirm_password', size=32) }}
+            </div>
+            <div id="validation-message" style="color: red;"></div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Diabetes Prediction Application</p>
+    </footer>
+</body>
+</html>
