@@ -83,19 +83,20 @@ The application calculates and displays the accuracy of each model. A bar graph 
 ## Screenshots
 
 ### Home Page
-![Home Page]("C:\Users\kavya\Downloads\pic1.jpg")
+![pic1](https://github.com/user-attachments/assets/3791e921-2508-42a7-8c68-30756d83a228)
 
 ### Registration Page
-![Registration Page]("C:\Users\kavya\Downloads\pic3.jpg")
+![pic3](https://github.com/user-attachments/assets/017710cd-4e38-480f-9019-b85c9bc836ae)
 
 ### Login Page
-![Login Page]("C:\Users\kavya\Downloads\pic2.jpg"g)
+![pic2](https://github.com/user-attachments/assets/39651fed-c0b6-4173-9182-b31c811d59ff)
 
 ### Prediction Page
-![Prediction Page]("C:\Users\kavya\Downloads\pic4.jpg")
+![pic7](https://github.com/user-attachments/assets/3bc2c5fd-358c-45dd-aa5e-87560a092de7)
 
 ### Result Page
-![Result Page]("C:\Users\kavya\Downloads\pic5.jpg")
+![pic5](https://github.com/user-attachments/assets/e351580b-c34f-4982-b3fb-9ae0ac9a367c)
+![pic6](https://github.com/user-attachments/assets/ebd53309-6c60-4442-bcbc-6f5aafb7c378)
 
 ## Acknowledgments
 
